@@ -14,9 +14,12 @@
     "@progress/kendo-react-grid": "^5.19.0",
     "@progress/kendo-react-intl": "^5.19.0",
     "@progress/kendo-theme-default": "^12.1.0",
+    "ag-grid-community": "^34.3.0",
+    "ag-grid-react": "^34.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0"
+    "react-router-dom": "^6.0.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^2.0.0",
