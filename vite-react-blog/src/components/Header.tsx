@@ -7,9 +7,12 @@ const Header: React.FC = () => {
         <header className="header">
             <div className="header-container">
                 <div className="brand">
-                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <h1 className="site-title">Jawna Gdynia</h1>
-                        <p className="site-subtitle">Portal Otwartych Danych</p>
+                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <img src="/logo.png" alt="Logo" style={{ height: '80px', width: 'auto' }} />
+                        <div>
+                            <h1 className="site-title">Jawna Gdynia</h1>
+                            <p className="site-subtitle">Portal Otwartych Danych</p>
+                        </div>
                     </Link>
                 </div>
                 <nav className="main-nav">
