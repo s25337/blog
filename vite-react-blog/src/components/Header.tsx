@@ -20,6 +20,9 @@ const Header: React.FC = () => {
                     <div className="dropdown">
                         <button className="nav-link dropdown-toggle">Tabele</button>
                         <div className="dropdown-menu">
+                            <Link to="/post/inwestycje-9-miesiecy-2025" className="dropdown-item">
+                                Inwestycje po 9 miesiącach 2025
+                            </Link>
                             <Link to="/post/raport-budzetu-2025" className="dropdown-item">
                                 Raport budżetu 2025
                             </Link>

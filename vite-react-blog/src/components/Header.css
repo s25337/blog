@@ -91,10 +91,10 @@
     top: 100%;
     right: 0;
     background: white;
-    min-width: 220px;
+    min-width: 280px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    margin-top: 4px;
+    margin-top: 0px;
     padding: 8px 0;
     z-index: 1000;
     border: 1px solid #E37239;
@@ -103,10 +103,10 @@
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    top: -4px;
+    top: -8px;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 8px;
     background: transparent;
 }
 
