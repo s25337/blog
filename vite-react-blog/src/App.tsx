@@ -10,12 +10,14 @@ const App: React.FC = () => {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/raporty" element={<Reports />} />
-        <Route path="/post/:slug" element={<Post />} />
-        <Route path="/edukacja" element={<Education />} />
-      </Routes>
+      <div className="page-bg">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/raporty" element={<Reports />} />
+          <Route path="/post/:slug" element={<Post />} />
+          <Route path="/edukacja" element={<Education />} />
+        </Routes>
+      </div>
     </>
   );
 };

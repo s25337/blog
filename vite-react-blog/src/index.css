@@ -10,13 +10,15 @@
     --border-light: #e8eaed;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Poppins kept as fallback for legacy elements */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 body {
     margin: 0;
-    font-family: 'Poppins', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+    font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Poppins', sans-serif;
+    /* unify background across the whole page to avoid white gaps */
     background: linear-gradient(135deg, #f8f9fb 0%, #e8eef3 100%);
-    background-attachment: fixed;
     color: var(--text-dark);
     line-height: 1.6;
 }
@@ -33,6 +35,19 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+/* Subtle white-orange checkerboard for pages below header */
+.page-bg {
+    min-height: 100vh;
+    /* inherit body background; avoid fixed attachment to prevent seams */
+    background: transparent;
+    padding: 24px 0; /* default breathing room under header */
+}
+
+/* When page content follows the header, reduce the top padding to close the gap */
+.header + .page-bg {
+    padding-top: 8px;
 }
 
 a {
