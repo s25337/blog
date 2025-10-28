@@ -7,16 +7,13 @@ const Header: React.FC = () => {
         <header className="header">
             <div className="header-container">
                 <div className="brand">
-                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                        <img src="/logo.png" alt="Logo" style={{ height: '80px', width: 'auto' }} />
-                        <div>
-                            <h1 className="site-title">Jawna Gdynia</h1>
-                            <p className="site-subtitle">Portal Otwartych Danych</p>
-                        </div>
+                    <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <img src="/logo.png" alt="Logo" className="logo-animate" style={{ height: '80px', width: 'auto' }} />
+                        <h1 className="site-title">Jawna Gdynia</h1>
                     </Link>
                 </div>
                 <nav className="main-nav">
-                    <Link to="/" className="nav-link">Raporty</Link>
+                    <Link to="/raporty" className="nav-link">Raporty</Link>
                     <div className="dropdown">
                         <button className="nav-link dropdown-toggle">Tabele</button>
                         <div className="dropdown-menu">

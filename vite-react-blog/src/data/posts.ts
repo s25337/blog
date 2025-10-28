@@ -45,7 +45,8 @@ Z **16,3 mln zł** planowanych na szkoły podstawowe wydano zaledwie **2,6%**, c
 
 To najmocniej odczuwalny obszar - inwestycje infrastrukturalne są w stanie głębokiego zastoju.
 
-## Podsumowanie całkowite
+### Podsumowanie całkowite
+
 
 - **Plan inwestycji (tzw. „6-ki"):** 298 mln zł
 - **Zaangażowanie:** 155 mln zł (52%)

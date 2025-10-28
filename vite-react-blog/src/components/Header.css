@@ -18,21 +18,56 @@
     flex: 1;
 }
 
-.site-title { 
-    font-weight: 700; 
-    font-size: 28px;
-    margin: 0;
-    letter-spacing: 0.5px;
-    color: #E37239;
+.brand a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.3s ease;
 }
 
-.site-subtitle {
-    margin: 4px 0 0 0;
-    font-size: 14px;
-    opacity: 0.9;
-    font-weight: 400;
-    color: #EAB56F;
+.brand a:hover {
+    transform: scale(1.02);
 }
+
+.brand a:hover .site-title {
+    color: #EAB56F;
+    transform: translateY(-2px);
+}
+
+/* Site title - Poppins, single line */
+.site-title {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600 !important;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 0.5px;
+    color: #E37239 !important;
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #E37239 !important;
+    background-clip: unset !important;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+}
+
+/* Logo animation */
+.logo-animate {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.8);
+    animation: logoIn 0.8s cubic-bezier(.77,0,.18,1) 0.2s forwards;
+}
+
+
+@keyframes logoIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 
 .main-nav {
     display: flex;
