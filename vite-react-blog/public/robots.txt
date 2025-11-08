@@ -1,0 +1,37 @@
+# robots.txt for Jawna Gdynia
+# Last updated: 2025-11-08
+
+User-agent: *
+# Allow all standard pages
+Allow: /
+# Disallow build system artifacts (adjust if they exist in deployment)
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /*.map$
+
+# Sitemap (add real URL after deployment)
+Sitemap: https://jawna-gdynia.pl/sitemap.xml
+
+# Crawl-delay (optional, uncomment if server needs relief)
+# Crawl-delay: 1
+
+# Note: robots.txt is NOT a place for SEO keyword stuffing; most search engines ignore comments for ranking.
+# Kept here only as reference phrases relevant to site content.
+# Relevant thematic keywords (Polish):
+# jawna gdynia, budżet gdynia, inwestycje gdynia, wydatki publiczne, finanse miasta, raport budżetowy, analiza finansowa,
+# edukacja gdynia, gospodarka komunalna, kanalizacja gdynia, sieć retencyjna, infrastruktura miejska, sprawozdanie,
+# inwestycje 2025, wydatki bieżące, przejrzystość finansów, kontrola wydatków, dane publiczne, analiza inwestycji,
+# strata ppnt, ppnt gdynia, projekty miejskie, raport wydatków, jawność, finansowanie lokalne, budżet partycypacyjny,
+# kendo react grid, ag grid, eksport do excela, xlsx analiza, wizualizacja danych, wykres kołowy, tabela danych.
+
+# English equivalents (context only):
+# open data Gdynia, Gdynia budget, public spending transparency, municipal investments, financial report, capital projects,
+# stormwater infrastructure, retention network, education spending, infrastructure backlog, investment execution, budget execution.
+
+# If you want to restrict AI / bot scrapers (some honor these):
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+
+# End of file

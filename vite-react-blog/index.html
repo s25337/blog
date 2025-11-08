@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jawna Gdynia - Portal Otwartych Danych</title>
-    <meta name="description" content="Portal otwartych danych Miasta Gdynia - przejrzyste dane publiczne">
+        <title>Jawna Gdynia - Portal Otwartych Danych</title>
+        <meta name="description" content="Jawna Gdynia — otwarte dane, raporty budżetowe, inwestycje i edukacja finansowa. Przejrzyste wydatki, analizy i tabele danych.">
+
+        <!-- Open Graph / Twitter -->
+        <meta property="og:site_name" content="Jawna Gdynia">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Jawna Gdynia - Portal Otwartych Danych">
+        <meta property="og:description" content="Otwarte dane Gdyni: raporty budżetowe, inwestycje, edukacja finansowa i wizualizacje danych.">
+        <meta property="og:url" content="https://jawna-gdynia.pl/">
+
+        <!-- JSON-LD: WebSite + Organization -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Jawna Gdynia",
+            "url": "https://jawna-gdynia.pl/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://jawna-gdynia.pl/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Jawna Gdynia",
+            "url": "https://jawna-gdynia.pl/",
+            "logo": "https://jawna-gdynia.pl/logo.png",
+            "sameAs": [
+                "https://github.com/s25337/blog"
+            ]
+        }
+        </script>
 </head>
 <body>
     <div id="root"></div>

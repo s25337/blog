@@ -1,7 +1,12 @@
 .header {
-    padding-top: 16px; /* top spacing from page */
-    /* let body show the unified background */
-    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-top: 0;
+    background: #ffffff; /* white banner */
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* visual separation */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .header-content-banners {
     width: 100%;
@@ -11,13 +16,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    /* card-like container like dashboard */
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-left: 4px solid #E37239;
-    /* slight left shift by asymmetric padding */
-    padding: 14px 24px 14px 10px;
+    /* simple light banner - no card styling */
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border-left: none;
+    /* balanced padding */
+    padding: 12px 24px;
+    transition: padding 0.25s ease;
     box-sizing: border-box;
 }
 
@@ -64,17 +70,17 @@
 }
 .header-banner {
     width: 100%;
-    min-height: 84px; /* compact card height */
-    background: transparent; /* container stays transparent */
+    min-height: 72px; /* default expanded height */
+    background: transparent; /* inherits light page bg */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: none;
+    transition: min-height 0.25s ease;
     box-shadow: none;
     position: relative;
     z-index: 1;
     overflow: visible;
-    margin-bottom: 8px; /* tighter spacing below header */
+    margin-bottom: 0; /* remove gap below sticky header */
 }
 
 /* Remove orange accent lines (use card instead) */
@@ -138,7 +144,7 @@
 .header-logo-title-link {
     display: flex;
     align-items: center;
-    gap: 2px; /* keep in sync with JS gapPx */
+    gap: 2px; /* tight spacing */
     text-decoration: none;
     transition: filter 0.2s;
 }
@@ -146,19 +152,7 @@
     filter: brightness(1.08);
 }
 
-/* Smooth slide swap using measured widths */
-.header-logo-link,
-.header-title-animate {
-    transition: transform 0.45s cubic-bezier(.22,.61,.36,1);
-    will-change: transform;
-}
-
-.header-logo-title-link.swap .header-logo-link {
-    transform: translateX(calc(var(--swap-logo, 0px) + var(--swap-buffer, 0px)));
-}
-.header-logo-title-link.swap .header-title-animate {
-    transform: translateX(calc(var(--swap-title, 0px) * -1 - var(--swap-buffer, 0px)));
-}
+/* No hover swap animation */
 
 .header-logo-link {
     display: flex;
@@ -173,19 +167,30 @@
 }
 
 .logo-animate {
-    opacity: 0;
-    /* fade-in only to avoid transform conflicts with hover swap */
-    animation: fadeInOpacity 0.6s ease 0.2s forwards;
+    opacity: 1; /* no entrance animation */
 }
-/* unified fade-in keyframes */
-@keyframes fadeInOpacity {
-    to { opacity: 1; }
+
+/* Collapsible adjustments */
+.header-logo-img {
+    height: 72px;
+    width: auto;
+    transition: height 0.25s ease;
+}
+.header.collapsed .header-banner {
+    min-height: 56px;
+}
+.header.collapsed .header-content-banners {
+    padding: 6px 20px;
+}
+.header.collapsed .site-title {
+    font-size: 32px;
+}
+.header.collapsed .header-logo-img {
+    height: 48px;
 }
 
 .header-title-animate {
-    opacity: 0;
-    /* fade-in only to avoid transform conflicts with hover swap */
-    animation: fadeInOpacity 0.5s ease 0.5s forwards;
+    opacity: 1; /* no entrance animation */
     display: flex;
     align-items: center;
     margin-left: 0;
@@ -202,7 +207,7 @@
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: #E37239 !important;
     background-clip: unset !important;
-    transition: all 0.3s ease;
+    transition: font-size 0.25s ease, color 0.2s ease;
     white-space: nowrap;
     line-height: 1.2; /* avoid clipping descenders like y */
     text-align: left;
@@ -236,7 +241,7 @@
 
 .main-nav {
     display: flex;
-    gap: 8px; /* tighter gap; separators will add visual spacing */
+    gap: 16px; /* comfortable spacing without separators */
     align-items: center;
 }
 
@@ -281,17 +286,7 @@
     font-size: 10px;
 }
 
-/* Orange separators between nav items */
-.main-nav > * {
-    display: flex;
-    align-items: center;
-}
-.main-nav > *:not(:first-child)::before {
-    content: '|';
-    color: #E37239;
-    opacity: 0.8;
-    margin: 0 12px;
-}
+/* Removed orange separators between nav items */
 
 .dropdown-menu {
     display: none;

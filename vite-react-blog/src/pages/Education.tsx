@@ -67,9 +67,9 @@ const Education: React.FC = () => {
                     🔗 Dodatkowe zasoby
                 </h2>
                 <p style={{ lineHeight: '1.8', color: '#333' }}>
-                    Więcej informacji o danych publicznych i transparentności znajdziesz na stronie{' '}
+                    Więcej informacji o danych publicznych i transparentności znajdziesz na profilu{' '}
                     <a 
-                        href="https://gdynia.pl" 
+                        href="https://www.facebook.com/profile.php?id=100007185166970" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         style={{ 
@@ -82,7 +82,7 @@ const Education: React.FC = () => {
                         onMouseEnter={(e) => e.currentTarget.style.borderBottomColor = '#E37239'}
                         onMouseLeave={(e) => e.currentTarget.style.borderBottomColor = 'transparent'}
                     >
-                        Gdynia.pl
+                        Grzegorz Bońdos
                     </a>
                 </p>
             </div>

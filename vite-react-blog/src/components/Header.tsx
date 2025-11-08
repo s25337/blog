@@ -1,15 +1,37 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header: React.FC = () => {
-    // Swap logic extracted to a child component to keep hooks valid
+    const [collapsed, setCollapsed] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => {
+            const y = window.scrollY || window.pageYOffset || 0;
+            setCollapsed(y > 40);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true } as any);
+        return () => window.removeEventListener('scroll', onScroll as any);
+    }, []);
+
     return (
-        <header className="header">
+        <header className={`header${collapsed ? ' collapsed' : ''}`}>
             <div className="header-banner">
                 <div className="header-content-banners">
                     <div className="header-banner-rect left">
-                        <HeaderSwapLink />
+                        <Link to="/" className="header-logo-title-link">
+                            <span className="header-logo-link">
+                                <img
+                                    src="/logo.png"
+                                    alt="Logo"
+                                    className="logo-animate logo-shadow header-logo-img"
+                                />
+                            </span>
+                            <span className="header-title-animate">
+                                <h1 className="site-title">Jawna Gdynia</h1>
+                            </span>
+                        </Link>
                     </div>
                     <div className="header-banner-rect right">
                         <nav className="main-nav">
@@ -21,7 +43,7 @@ const Header: React.FC = () => {
                                         Inwestycje po 9 miesiącach 2025
                                     </Link>
                                     <Link to="/post/raport-budzetu-2025" className="dropdown-item">
-                                        Raport budżetu 2025
+                                        Sprawozdanie z wykonania planu wydatków za III kwartał 2025 r.
                                     </Link>
                                 </div>
                             </div>
@@ -35,66 +57,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
-// Child component handling the hover swap animation between logo and title
-const HeaderSwapLink: React.FC = () => {
-    const gapPx = 4; // keep in sync with CSS gap
-    const linkRef = useRef<HTMLAnchorElement | null>(null);
-    const logoRef = useRef<HTMLSpanElement | null>(null);
-    const titleRef = useRef<HTMLSpanElement | null>(null);
-    const [swap, setSwap] = useState(false);
-
-    const updateSwapMetrics = () => {
-        const logoEl = logoRef.current;
-        const titleEl = titleRef.current;
-        const linkEl = linkRef.current;
-        if (!logoEl || !titleEl || !linkEl) return;
-        let logoW = logoEl.getBoundingClientRect().width || (logoEl as HTMLElement).offsetWidth || 0;
-        let titleW = titleEl.getBoundingClientRect().width || (titleEl as HTMLElement).offsetWidth || 0;
-        linkEl.style.setProperty('--swap-logo', `${titleW + gapPx}px`);
-        linkEl.style.setProperty('--swap-title', `${logoW + gapPx}px`);
-    linkEl.style.setProperty('--swap-buffer', `2px`);
-    };
-
-    useEffect(() => {
-        updateSwapMetrics();
-        // Observe size changes to keep metrics in sync
-        const ro = ('ResizeObserver' in window)
-            ? new ResizeObserver(() => updateSwapMetrics())
-            : null;
-        if (ro) {
-            if (logoRef.current) ro.observe(logoRef.current);
-            if (titleRef.current) ro.observe(titleRef.current);
-        }
-        const onResize = () => updateSwapMetrics();
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    return (
-        <Link
-            to="/"
-            ref={linkRef}
-            className={`header-logo-title-link${swap ? ' swap' : ''}`}
-            onMouseEnter={() => {
-                updateSwapMetrics();
-                setSwap(true);
-            }}
-            onMouseLeave={() => setSwap(false)}
-        >
-            <span className="header-logo-link" ref={logoRef}>
-                <img
-                    src="/logo.png"
-                    alt="Logo"
-                    className="logo-animate logo-shadow"
-                    style={{ height: '72px', width: 'auto' }}
-                    onLoad={updateSwapMetrics}
-                />
-            </span>
-            <span className="header-title-animate" ref={titleRef}>
-                <h1 className="site-title">Jawna Gdynia</h1>
-            </span>
-        </Link>
-    );
-};

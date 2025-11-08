@@ -36,14 +36,10 @@ const Dashboard = () => {
     fetchPPNTData();
   }, []);
 
-  // Dane do Pie Chart - podział wydatków
+  // Dane do Pie Chart - podział wydatków po 3 kwartałach 2025
   const expensesByCategoryData = [
-    { category: 'Infrastruktura', value: 3200000 },
-    { category: 'Edukacja', value: 2100000 },
-    { category: 'Kultura i Sport', value: 1500000 },
-    { category: 'Służba Zdrowia', value: 2800000 },
-    { category: 'Administracja', value: 1200000 },
-    { category: 'Transport', value: 1800000 },
+    { category: 'Inwestycje wykonane', value: 70172736.25 },
+    { category: 'Wydatki bieżące', value: 1746422196.77 },
   ];
 
   // Dane do Bar Chart - inwestycje
@@ -65,17 +61,17 @@ const Dashboard = () => {
   const pieChartOptions: AgChartOptions = {
     data: expensesByCategoryData,
     title: {
-      text: 'Wydatki według kategorii',
+      text: 'Wydatki po 3 kwartałach 2025',
       fontSize: 18,
       fontWeight: 600,
       color: '#254252',
     },
     series: [
       {
-        type: 'pie',
+        type: 'pie' as any,
         angleKey: 'value',
         legendItemKey: 'category',
-        fills: ['#254252', '#E37239', '#F9982F', '#EAB56F', '#171C2D', '#5A7C8C'],
+        fills: ['#E37239', '#254252'],
         strokes: ['#fff'],
         strokeWidth: 2,
         calloutLabel: {
@@ -85,7 +81,7 @@ const Dashboard = () => {
         sectorLabel: {
           enabled: false,
         },
-      },
+      } as any,
     ],
     legend: {
       position: 'right',
@@ -207,19 +203,22 @@ const Dashboard = () => {
           <div className="metric-change" style={{ color: '#dc3545' }}>-10 mln zł w 2024</div>
         </div>
         <div className="metric-card">
-          <div className="metric-value">90</div>
-          <div className="metric-label">Aktywne Projekty</div>
-          <div className="metric-change positive">+12 vs Q2</div>
+          <div className="metric-value" style={{ fontSize: '40px' }}>70 mln zł</div>
+          <div className="metric-label" style={{ fontSize: '14px' }}>Wydano na inwestycje w 2025</div>
+          <div className="metric-change" style={{ color: '#dc3545', fontWeight: 600 }}>0,28% budżetu</div>
         </div>
         <div className="metric-card">
-          <div className="metric-value">98.2%</div>
-          <div className="metric-label">Realizacja Planu</div>
-          <div className="metric-change positive">+2.1%</div>
+          <div className="metric-value">4 mln zł</div>
+          <div className="metric-label">Budżet na PR</div>
         </div>
         <div className="metric-card">
-          <div className="metric-value">45</div>
-          <div className="metric-label">Zakończone Projekty</div>
-          <div className="metric-change">w 2025</div>
+          <div className="metric-value" style={{ fontSize: '36px' }}>100 mln zł</div>
+          <div className="metric-label" style={{ fontSize: '14px' }}>
+            Gdzie uciekły pieniądze z PEWIK?
+          </div>
+          <div className="metric-change" style={{ color: '#6c757d' }}>
+            Co z inwestycjami w kanalizację i sieć retencyjną?
+          </div>
         </div>
       </div>
 
@@ -233,12 +232,13 @@ const Dashboard = () => {
         <div className="chart-container">
           <AgCharts options={pieChartOptions} />
         </div>
-        <div className="chart-container">
+        {/* Ukryte tymczasowo */}
+        {/* <div className="chart-container">
           <AgCharts options={barChartOptions} />
         </div>
         <div className="chart-container">
           <AgCharts options={donutChartOptions} />
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll indicator */}

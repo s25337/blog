@@ -63,10 +63,10 @@ Poczekamy jeszcze 3 miesiące, ale już teraz wygląda, że **2025 rok może by�
   {
     id: '2',
     slug: 'raport-budzetu-2025',
-    title: 'Raport budżetu 2025 – wydatki i dochody',
+    title: 'Sprawozdanie z wykonania planu wydatków za III kwartał 2025 r.',
     date: '2025-10-20',
     excerpt: 'Raport za ostatnie 9 miesiecy',
-    content: 'teksast tekst ',
+    content: '',
     excel: { file: '/data/analiza.xlsx' }
   }
 ];
